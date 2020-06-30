@@ -1,4 +1,4 @@
-# Tour-A-Versity#
+# Tour-A-Versity
 ---
 Design Document  
 Charles Holt, Alen Anand, Kyle Brady
