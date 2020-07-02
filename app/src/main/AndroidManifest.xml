@@ -8,7 +8,7 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -40,15 +40,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TUC_Info"
+            android:name=".TucInfo"
             android:label="TUCInfo">
         </activity>
         <activity
-            android:name=".TUC_Photos"
+            android:name=".TucPhotos"
             android:label="Photos">
         </activity>
         <activity
-            android:name=".CECH_Info"
+            android:name=".CechInfo"
             android:label="CECHInfo">
         </activity>
     </application>

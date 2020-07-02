@@ -2,9 +2,8 @@ package com.example.tour_a_versity_v3
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tour_a_versity_v3.R
 
-class CECH_Photos: AppCompatActivity() {
+class TucPhotos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity3)

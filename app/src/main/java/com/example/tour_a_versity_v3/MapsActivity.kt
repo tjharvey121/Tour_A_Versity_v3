@@ -11,7 +11,10 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+//class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+class MapsActivity :
+    AppCompatActivity(), OnMapReadyCallback,
+    GoogleMap.OnInfoWindowClickListener {
 
     private lateinit var map: GoogleMap
     private lateinit var tucMarker: Marker
@@ -60,12 +63,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
         )
     }
     override fun onInfoWindowClick(p0: Marker?) {
-        if (p0 == tucMarker){
-            val intent = Intent(this, TUC_Info::class.java)
+        if (p0 === tucMarker){
+            val intent = Intent(this, TucInfo::class.java)
             startActivity(intent)
         }
-        else if (p0 == cechMarker){
-            val intent = Intent(this, CECH_Info::class.java)
+        else if (p0 === cechMarker){
+            val intent = Intent(this, CechInfo::class.java)
             startActivity(intent)
         }
     }
