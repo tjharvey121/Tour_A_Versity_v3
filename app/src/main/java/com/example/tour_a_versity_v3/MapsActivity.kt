@@ -36,7 +36,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
         map.mapType = GoogleMap.MAP_TYPE_HYBRID
         map.setOnInfoWindowClickListener(this)
         val zoomLevel = 17f
-        val tucLatLng = markTUC();
+        val tucLatLng = markTUC()
         //move camera to TUC & add marker
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(tucLatLng, zoomLevel))
         tucMarker = map.addMarker(MarkerOptions()
@@ -45,7 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
                 .snippet("Tangeman University Center")
         )
 
-        //create another marker for CECH+
+        //create another marker for CECH
         val cechLatLng = markCECH()
         cechMarker = map.addMarker(MarkerOptions()
                 .position(cechLatLng)
@@ -73,13 +73,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
     }
 
     override fun onInfoWindowClick(p0: Marker?) {
-        if (p0 == tucMarker){
+        if (p0 == this.tucMarker){
             val intent = Intent(this, TUC_Info::class.java)
             startActivity(intent)
         }
         else if (p0 == cechMarker){
             val intent = Intent(this, CECH_Info::class.java)
             startActivity(intent)
+        }
+        else {
+            // Accounts for other clicks, could also add in a print for the lat and lng
+            // Could also grab that data and see if there was something the user was looking for
+            println("Another marker on the map was clicked")
         }
 
     }
