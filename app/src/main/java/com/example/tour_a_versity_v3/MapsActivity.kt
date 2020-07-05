@@ -35,12 +35,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
         this.map = googleMap
         map.mapType = GoogleMap.MAP_TYPE_HYBRID
         map.setOnInfoWindowClickListener(this)
-        //set values for TUC
-        val tucLat = 39.13175
-        val tucLng = -84.51774
         val zoomLevel = 17f
-        //create LatLng object for TUC
-        val tucLatLng = LatLng(tucLat, tucLng)
+        val tucLatLng = markTUC();
         //move camera to TUC & add marker
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(tucLatLng, zoomLevel))
         tucMarker = map.addMarker(MarkerOptions()
@@ -49,16 +45,33 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
                 .snippet("Tangeman University Center")
         )
 
-        //create another marker for CECH
-        val cechLat = 39.130315
-        val cechLng = -84.518680
-        val cechLatLng = LatLng(cechLat, cechLng)
+        //create another marker for CECH+
+        val cechLatLng = markCECH()
         cechMarker = map.addMarker(MarkerOptions()
                 .position(cechLatLng)
                 .title("CECH")
                 .snippet("College of Education, Criminal Justice, Human Services, and IT")
         )
     }
+
+    private fun markTUC(): LatLng {
+        //set values for TUC
+        val tucLat = 39.13175
+        val tucLng = -84.51774
+
+        //create and return LatLng object for TUC
+        return LatLng(tucLat, tucLng)
+    }
+
+    private fun markCECH(): LatLng {
+        //set values for CECH
+        val cechLat = 39.130315
+        val cechLng = -84.518680
+
+        //create and return LatLng object for CECH
+        return LatLng(cechLat, cechLng)
+    }
+
     override fun onInfoWindowClick(p0: Marker?) {
         if (p0 == tucMarker){
             val intent = Intent(this, TUC_Info::class.java)
@@ -68,6 +81,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
             val intent = Intent(this, CECH_Info::class.java)
             startActivity(intent)
         }
+
     }
 
 }
