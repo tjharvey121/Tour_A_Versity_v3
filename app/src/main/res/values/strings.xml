@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tour_A_Versity_v3</string>
     <string name="title_activity_maps">Map</string>
-    <string name="TUC_text">This is text about the TUC building at University of Cincinanti</string>
+    <string name="TUC_text">This is text about the TUC building at University of Cincinnati</string>
     <string name="view_photos">View Photos</string>
     <string name="images_of_tuc">Images Of TUC</string>
     <string name="image1_description">Image1</string>
